@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details - Grocery Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260401b" />
+</head>
+<body class="details-page">
+  <div class="bg-noise"></div>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">grocery-lab</p>
+      <h1 id="product-name">Product</h1>
+    </div>
+    <a href="index.html" class="ghost-btn nav-link">Back</a>
+  </header>
+
+  <main class="details-layout">
+    <section class="glass details-summary" id="details-summary">
+      <img id="product-image" class="product-detail-image" alt="Product image" loading="lazy" />
+      <div id="details-summary-info"></div>
+    </section>
+    <section class="glass nutrition-card">
+      <h2>Nutrition Label</h2>
+      <div class="nutrition-modes">
+        <button type="button" id="nutrition-mode-default" class="ghost-btn active">Default</button>
+        <button type="button" id="nutrition-mode-per100" class="ghost-btn">Per 100g</button>
+        <button type="button" id="nutrition-mode-package" class="ghost-btn">Package Total</button>
+      </div>
+      <div id="nutrition-table"></div>
+    </section>
+    <section class="glass offers-card">
+      <h2>Nearby Store Offers</h2>
+      <div id="offers-list"></div>
+    </section>
+  </main>
+
+  <div id="loading-indicator" class="loading-indicator hidden" aria-live="polite">
+    <div class="loading-dot"></div>
+    <span>Loading...</span>
+  </div>
+
+  <script src="product.js?v=20260401b"></script>
+</body>
+</html>

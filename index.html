@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nekree Grocery Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-noise"></div>
+
+  <header class="topbar">
+    <div>
+      <h1>Grocery Data Explorer + Meal Maker</h1>
+    </div>
+    <button id="change-location" class="ghost-btn">Change Location</button>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar glass">
+      <h2>Categories</h2>
+      <p class="muted">Pick a category tree node or search by name/brand.</p>
+      <button id="clear-category" class="ghost-btn">All Categories</button>
+      <div id="categories" class="category-tree"></div>
+    </aside>
+
+    <section class="content">
+      <div class="search-row glass">
+        <input id="search-input" type="text" placeholder="Search groceries (try typo-friendly: n nam pasta)" />
+        <button id="search-btn">Search</button>
+      </div>
+
+      <div class="filters glass">
+        <div>
+          <span class="label">Postal</span>
+          <strong id="postal-pill">-</strong>
+        </div>
+        <div>
+          <span class="label">Radius</span>
+          <strong id="radius-pill">-</strong>
+        </div>
+        <div>
+          <span class="label">Stores Found</span>
+          <strong id="stores-pill">0</strong>
+        </div>
+        <div>
+          <span class="label">Mode</span>
+          <strong id="mode-pill">Browse</strong>
+        </div>
+      </div>
+
+      <section id="products" class="product-grid"></section>
+      <div class="pager">
+        <button id="prev-page" class="ghost-btn">Prev</button>
+        <span id="page-label">Page 1</span>
+        <button id="next-page" class="ghost-btn">Next</button>
+      </div>
+    </section>
+
+    <aside class="meal glass">
+      <h2>Meal Maker</h2>
+      <p class="muted">Add products from cards and estimate nutrition + cost.</p>
+      <div id="meal-lines" class="meal-lines"></div>
+      <button id="recalc-meal">Recalculate Meal</button>
+      <div id="meal-loading" class="meal-loading hidden">Calculating meal...</div>
+      <div id="meal-totals" class="meal-totals"></div>
+    </aside>
+  </main>
+
+  <div id="loading-indicator" class="loading-indicator hidden" aria-live="polite" aria-busy="true">
+    <div class="loading-card">
+      <div class="loading-spinner"></div>
+      <div class="loading-title">Loading results</div>
+      <div class="loading-sub">Please wait and do not interact with the page.</div>
+    </div>
+  </div>
+
+  <div id="location-modal" class="modal open" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h2>Find Stores Near You</h2>
+      <p>Enter postal code and radius to scope all prices + products.</p>
+      <label for="postal-input">Postal Code</label>
+      <input id="postal-input" type="text" placeholder="M5V2T6" />
+      <label for="radius-input">Radius (km)</label>
+      <input id="radius-input" type="number" min="1" max="200" value="8" />
+      <button id="save-location">Start Exploring</button>
+      <p id="location-error" class="error"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
